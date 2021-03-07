@@ -1,0 +1,22 @@
+Bicycle:Wheel:Power Source:Controller:Motor
+Solution	Fitness
+DCCEA	(0.5510706535926004,)
+netMass:21.39 kilogram
+maxSpeed:20.803839215556028 kilometre per hour
+maxPowerOutput:324 watt
+ADBBD	(0.5275399965708114,)
+netMass:27.240000000000002 kilogram
+maxSpeed:10.325999794248684 kilometre per hour
+maxPowerOutput:192 watt
+DBACA	(0.47456527478689986,)
+netMass:21.630000000000003 kilogram
+maxSpeed:18.287116487213993 kilometre per hour
+maxPowerOutput:360 watt
+CABDA	(0.43707535088237515,)
+netMass:28.249999999999996 kilogram
+maxSpeed:9.334521052942506 kilometre per hour
+maxPowerOutput:288 watt
+EAAAE	(0.3179474620523879,)
+netMass:23.099999999999998 kilogram
+maxSpeed:4.2808477231432756 kilometre per hour
+maxPowerOutput:108 watt

@@ -1,0 +1,6 @@
+Bicycle:Wheel:Power Source:Controller:Motor
+Solution	Fitness
+CBBDD	(0.4681432331419879,)
+netMass:28.33 kilogram
+maxSpeed:11.169793988519272 kilometre per hour
+maxPowerOutput:288 watt

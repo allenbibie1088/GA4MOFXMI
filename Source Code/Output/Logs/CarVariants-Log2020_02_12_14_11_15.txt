@@ -1,0 +1,22 @@
+AtmoGasoline:Lamp:FilamentBurnoutDetector:AutolevelingMotor:Spoiler:SunRoof:Door:Wheel:Chassis
+Solution	Fitness
+BCCEEBCAC	(0.8530861332269528,)
+maxMass:1747.81 kilogram
+maxOutputPower:250 horsepower
+maxSpeed:151.32205329078116 kilometre per hour
+BBBCDBBBA	(0.8481935792062663,)
+maxMass:1237.86 kilogram
+maxOutputPower:250 horsepower
+maxSpeed:169.76303168250647 kilometre per hour
+CBBAABDCC	(0.827607301267536,)
+maxMass:1754.25 kilogram
+maxOutputPower:285.7142857142857 horsepower
+maxSpeed:158.01577764987155 kilometre per hour
+CEEECBBAC	(0.8272296071239204,)
+maxMass:1738.83 kilogram
+maxOutputPower:285.7142857142857 horsepower
+maxSpeed:158.48149999242528 kilometre per hour
+ACCECCBBA	(0.8098858279471766,)
+maxMass:1247.8899999999999 kilogram
+maxOutputPower:228.57142857142858 horsepower
+maxSpeed:164.3244454645849 kilometre per hour

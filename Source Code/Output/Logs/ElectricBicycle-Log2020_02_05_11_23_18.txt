@@ -1,0 +1,6 @@
+Bicycle:Wheel:Power Source:Controller:Motor
+Solution	Fitness
+FBAEB	(0.522349010056352,)
+netMass:17.33 kilogram
+maxSpeed:20.54214060338112 kilometre per hour
+maxPowerOutput:324 watt

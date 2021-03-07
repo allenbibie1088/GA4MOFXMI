@@ -1,0 +1,6 @@
+Bicycle:Wheel:Power Source:Controller:Motor
+Solution	Fitness
+ADADD	(0.567058884764187,)
+netMass:20.09 kilogram
+maxSpeed:15.751133085851215 kilometre per hour
+maxPowerOutput:216 watt

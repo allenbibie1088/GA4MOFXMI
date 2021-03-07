@@ -1,0 +1,6 @@
+Bicycle:Wheel:Power Source:Controller:Motor
+Solution	Fitness
+FDCDF	(0.5529630263235626,)
+netMass:22.6 kilogram
+maxSpeed:14.001781579413757 kilometre per hour
+maxPowerOutput:216 watt
