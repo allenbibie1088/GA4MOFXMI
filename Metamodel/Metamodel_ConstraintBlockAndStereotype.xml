@@ -1,0 +1,36 @@
+Constraint Block:
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526287391540_960686_15037' name='ohms calculation'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526287391564_911449_15045'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526287391540_960686_15037'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526287391564_446351_15046'>
+			<body>ohms = volts / amps</body>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526372807100_646384_46069' name='volts' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650200718_352024_181129'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::voltage::voltage[volt]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526372807103_901214_46071' name='amps' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650189201_296142_113251'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current::electric current[ampere]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526372807104_227411_46073' name='ohms' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650189985_393135_117080'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::resistance to alternating electric current::resistance to alternating electric current[ohm]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>
+
+Stereotype:
+<sysml:ConstraintBlock xmi:id='_18_5_2_bac02e1_1526287391541_250715_15038' base_Class='_18_5_2_bac02e1_1526287391540_960686_15037'/>

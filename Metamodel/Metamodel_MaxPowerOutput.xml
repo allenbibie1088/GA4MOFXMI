@@ -1,0 +1,183 @@
+MaxPowerOutput -> Connector -> Constraint Block
+MaxPowerOutput -> Abstraction -> Requirement
+
+MaxPowerOutput:
+<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526370824596_154403_15540' name='maxPowerOutput' aggregation='composite' isDerived='true'>
+	<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650195674_305991_150950'>
+		<xmi:Extension extender='MagicDraw UML 19.0'>
+			<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::output power::output power[watt]' referentType='DataType'/>
+		</xmi:Extension>
+	</type>
+	<defaultValue xmi:type='uml:LiteralReal' xmi:id='_18_5_2_bac02e1_1526384023497_710873_56342'/>
+</ownedAttribute>
+
+Stereotype:
+<MD_Customization_for_SysML__additional_stereotypes:ValueProperty xmi:id='_18_5_2_bac02e1_1526370824598_202632_15541' base_Property='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+
+<sysml:moe xmi:id='_18_5_2_bac02e1_1526370824598_202632_15541application1' base_Property='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526371923238_146797_45339' base_Port='_18_5_2_bac02e1_1526371923238_17298_45338'/>
+
+<sysml:Block xmi:id='_18_5_2_bac02e1_1526287361110_48612_15025' base_Class='_18_5_2_bac02e1_1526287361110_698390_15024'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526445608901_467449_62451' base_Port='_18_5_2_bac02e1_1526445608901_615225_62450'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_19_0_bac02e1_1526669845785_398424_21602' base_Port='_19_0_bac02e1_1526669845783_868268_21601'/>
+
+<sysml:ConstraintBlock xmi:id='_19_0_bac02e1_1526669617106_881930_21537' base_Class='_19_0_bac02e1_1526669617105_879042_21536'/>
+
+Connector:
+<ownedConnector xmi:type='uml:Connector' xmi:id='_19_0_bac02e1_1526657745385_268946_17994' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657745385_241712_17995' partWithPort='_18_5_2_bac02e1_1526439584672_204621_61675' role='_18_5_2_bac02e1_1526371923238_17298_45338'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657745385_920301_17996' role='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+</ownedConnector>
+
+<ownedConnector xmi:type='uml:Connector' xmi:id='_19_0_bac02e1_1526657852382_654830_18245' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657852382_15090_18246' role='_18_5_2_bac02e1_1526287379912_31491_15027'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657852382_621144_18247' role='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+</ownedConnector>
+
+<ownedConnector xmi:type='uml:Connector' xmi:id='_19_0_bac02e1_1526657951046_184448_18545' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657951047_722263_18546' role='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657951047_712873_18547' partWithPort='_18_5_2_bac02e1_1526447380894_524889_62664' role='_18_5_2_bac02e1_1526445608901_615225_62450'/>
+</ownedConnector>
+
+<ownedConnector xmi:type='uml:Connector' xmi:id='_19_0_bac02e1_1526669872736_75966_21623' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526669872736_643308_21624' partWithPort='_19_0_bac02e1_1526669671291_547212_21540' role='_19_0_bac02e1_1526669845783_868268_21601'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526669872736_371861_21625' role='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+</ownedConnector>
+
+Absraction and Requirement:
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481507311_438016_63898'>
+	<client xmi:idref='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526368983870_183677_14669'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481508502_280723_63904'>
+	<client xmi:idref='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526369382184_616509_14814'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481511540_181511_63910'>
+	<client xmi:idref='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526370483910_996379_15223'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481525716_111892_63940'>
+	<client xmi:idref='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526369982707_323232_15020'/>
+</packagedElement>
+
+Constraint and Block:
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526371875425_972763_45277' name='CA Max Power Reg'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526371875436_255977_45308'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526371875425_972763_45277'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526371875436_906602_45309'>
+			<body>powerOutput &lt;= 500</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526371923238_17298_45338' name='powerOutput' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650195674_305991_150950'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::output power::output power[watt]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526445365747_195500_62415' name='RPM Formular'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526445365759_452082_62446'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526445365747_195500_62415'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526445365759_149079_62447'>
+			<body>n = (P * 9.549)/F</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526445608901_615225_62450' name='P' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650195674_305991_150950'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::output power::output power[watt]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526445608909_904532_62452' name='F' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650180214_448107_64653'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::force::force[newton]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526445608910_29398_62454' name='n' visibility='private' aggregation='composite' type='_18_5_2_bac02e1_1526445701532_966310_62463'/>
+</packagedElement>
+				
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526287361110_698390_15024' name='Power measurement'>
+	<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526287379912_31491_15027' name='watts : Real' visibility='public'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650195674_305991_150950'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::output power::output power[watt]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526287379913_69939_15029' name='amps'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650189201_296142_113251'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current::electric current[ampere]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526287379914_309505_15031' name='volts'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650200718_352024_181129'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::voltage::voltage[volt]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526372996407_117053_46341' name='wattsEqt' aggregation='composite' type='_18_5_2_bac02e1_1526287391542_299460_15041'/>
+	<ownedAttribute xmi:type='uml:Property' xmi:id='_19_0_bac02e1_1526669671291_547212_21540' name='powerConstraint' aggregation='composite' type='_19_0_bac02e1_1526669617105_879042_21536'/>
+	<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526449840972_563714_64508' visibility='public'>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449840972_589356_64509' partWithPort='_18_5_2_bac02e1_1526372996407_117053_46341' role='_18_5_2_bac02e1_1526372803580_845544_46058'/>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449840972_156184_64510' role='_18_5_2_bac02e1_1526287379914_309505_15031'/>
+	</ownedConnector>
+	<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526449848648_986016_64525' visibility='public'>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449848649_270518_64526' partWithPort='_18_5_2_bac02e1_1526372996407_117053_46341' role='_18_5_2_bac02e1_1526372803582_393118_46060'/>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449848649_316552_64527' role='_18_5_2_bac02e1_1526287379913_69939_15029'/>
+	</ownedConnector>
+	<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526479526718_897061_53338' visibility='public'>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526479526718_820211_53339' partWithPort='_18_5_2_bac02e1_1526372996407_117053_46341' role='_18_5_2_bac02e1_1526372803584_576203_46062'/>
+		<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526479526718_566521_53340' role='_18_5_2_bac02e1_1526287379912_31491_15027'/>
+	</ownedConnector>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Class' xmi:id='_19_0_bac02e1_1526669617105_879042_21536' name='Power Constraint'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_19_0_bac02e1_1526669617115_53399_21538'>
+		<constrainedElement xmi:idref='_19_0_bac02e1_1526669617105_879042_21536'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_19_0_bac02e1_1526669617115_721849_21539'>
+			<body>motorPower &gt;= maxPower</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_19_0_bac02e1_1526669845703_384349_21587' name='motorPower' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_19_0_bac02e1_1526669845783_868268_21601' name='maxPower' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>

@@ -1,0 +1,64 @@
+FitnessValue -> Connector -> Constraint Block
+
+Fitness Value:
+<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526451416608_727103_66939' name='fitnessValue' aggregation='composite'>
+	<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+		<xmi:Extension extender='MagicDraw UML 19.0'>
+			<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+		</xmi:Extension>
+	</type>
+</ownedAttribute>
+
+Stereotype:
+<MD_Customization_for_SysML__additional_stereotypes:ValueProperty xmi:id='_18_5_2_bac02e1_1526451416610_926631_66940' base_Property='_18_5_2_bac02e1_1526451416608_727103_66939'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526452567981_101533_67222' base_Port='_18_5_2_bac02e1_1526452567981_88168_67221'/>
+
+<sysml:ConstraintBlock xmi:id='_18_5_2_bac02e1_1526452496008_546827_67181' base_Class='_18_5_2_bac02e1_1526452496007_716286_67180'/>
+
+Connector:
+<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526452957537_632303_68144' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526452957537_468605_68145' partWithPort='_18_5_2_bac02e1_1526452571047_882585_67229' role='_18_5_2_bac02e1_1526452567981_88168_67221'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526452957538_858223_68146' role='_18_5_2_bac02e1_1526451416608_727103_66939'/>
+</ownedConnector>
+
+Fitness is part of fitness constraint
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526452496007_716286_67180' name='Fitness Constraint'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526452496021_477316_67211'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526452496007_716286_67180'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526452496021_873341_67212'>
+			<body>fitness = fitnessSpeed + fitnessMass + fitnessPower</body>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526452567975_766825_67217' name='fitnessMass' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526452567980_941713_67219' name='fitnessSpeed' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526452567981_88168_67221' name='fitness' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526452567983_595401_67223' name='fitnessPower' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>

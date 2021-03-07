@@ -1,0 +1,120 @@
+MaxSpeed -> Connector -> Constraint Block
+MaxSpeed -> Abstraction -> Requirement
+
+Page 57: The number of ends of a connector owned by a block shall be exactly two. (In SysML, a binding connector is not typed by an association, so this constraint is not implied entirely by the preceding constraint.)
+
+MaxSpeed:
+<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526367758351_60564_43773' name='maxSpeed' aggregation='composite' isDerived='true' type='_18_5_2_bac02e1_1526372219229_343036_45772'>
+	<defaultValue xmi:type='uml:LiteralReal' xmi:id='_18_5_2_bac02e1_1526384019096_365570_56341'/>
+</ownedAttribute>
+
+Stereotype:
+<MD_Customization_for_SysML__additional_stereotypes:ValueProperty xmi:id='_18_5_2_bac02e1_1526367758352_275503_43774' base_Property='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+
+<sysml:moe xmi:id='_18_5_2_bac02e1_1526367758352_275503_43774application1' base_Property='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+<MD_Customization_for_SysML__additional_stereotypes:ValueProperty xmi:id='_18_5_2_bac02e1_1526370824598_202632_15541' base_Property='_18_5_2_bac02e1_1526370824596_154403_15540'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526446978685_54344_62562' base_Port='_18_5_2_bac02e1_1526446978685_675672_62561'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526451906426_649053_67132' base_Port='_18_5_2_bac02e1_1526451906426_422996_67131'/> 
+
+<sysml:ConstraintBlock xmi:id='_18_5_2_bac02e1_1526445880179_546662_62517' base_Class='_18_5_2_bac02e1_1526445880178_53398_62516'/>
+
+<sysml:ConstraintBlock xmi:id='_18_5_2_bac02e1_1526451655146_24087_67007' base_Class='_18_5_2_bac02e1_1526451655145_559622_67006'/>
+
+Connector:
+<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526449182756_667825_63287' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449182756_59231_63288' partWithPort='_18_5_2_bac02e1_1526447387718_970275_62667' role='_18_5_2_bac02e1_1526446978685_675672_62561'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526449182756_311878_63289' role='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+</ownedConnector>
+
+<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526452951740_33853_68123' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526452951740_107613_68124' role='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526452951740_269308_68125' partWithPort='_18_5_2_bac02e1_1526452461564_95882_67163' role='_18_5_2_bac02e1_1526451906426_422996_67131'/>
+</ownedConnector>
+
+Absraction and Requirement:
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481515528_531893_63916'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526369158775_279606_14729'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481517086_700344_63922'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526370225816_171731_15080'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481518535_775851_63928'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526370699786_846199_15283'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481520326_928912_63934'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367758351_60564_43773'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526481184292_871455_62730'/>
+</packagedElement>
+
+Constraint and Block:
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526445880178_53398_62516' name='Speed in Km per Hour'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526445880206_302972_62547'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526445880178_53398_62516'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526445880207_556704_62548'>
+			<body>speed = (n * ((diameter * 0.393701) * 3.1459)/60) * 0.09144</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526446978682_529162_62559' name='diameter' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650190976_898670_122114'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::diameter::diameter[centimetre]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526446978685_675672_62561' name='speed' visibility='private' aggregation='composite' type='_18_5_2_bac02e1_1526372219229_343036_45772'/>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526446978687_128844_62563' name='n' visibility='private' aggregation='composite' type='_18_5_2_bac02e1_1526445701532_966310_62463'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526451655145_559622_67006' name='Speed Fitness'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526451655159_343300_67037'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526451655145_559622_67006'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526451655159_552240_67038'>
+			<body>fitnessSpeed = speedRatio * (Math.abs(targetSpeed-speed)/targetSpeed)
+if(speed &gt; targetSpeed) fitnessSpeed = -fitnessSpeed;</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526451906415_235396_67125' name='targetSpeed' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526451906422_506716_67127' name='speedRatio' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526451906424_542920_67129' name='fitnessSpeed' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526451906426_422996_67131' name='speed' visibility='private' aggregation='composite'>
+		<type href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML_Libraries_PackageableElement-PrimitiveValueTypes_PackageableElement-Real_PackageableElement'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='SysML::Libraries::PrimitiveValueTypes::Real' referentType='DataType' originalID='_11_5EAPbeta_be00301_1147431819399_50461_1671'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>

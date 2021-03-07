@@ -1,0 +1,69 @@
+NetMass -> Connector -> Constraint Block
+NetMass -> Abstraction -> Requirement
+
+NetMass:
+<ownedAttribute xmi:type='uml:Property' xmi:id='_18_5_2_bac02e1_1526367685993_432339_14859' name='netMass' aggregation='composite' isDerived='true'>
+	<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650184728_204346_92547'>
+		<xmi:Extension extender='MagicDraw UML 19.0'>
+			<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass[kilogram]' referentType='DataType'/>
+		</xmi:Extension>
+	</type>
+</ownedAttribute>
+
+Stereotype:
+<sysml:ConstraintBlock xmi:id='_18_5_2_bac02e1_1526371613651_689340_45069' base_Class='_18_5_2_bac02e1_1526371613650_732818_45068'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ValueProperty xmi:id='_18_5_2_bac02e1_1526367685996_221481_14860' base_Property='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+
+<sysml:moe xmi:id='_18_5_2_bac02e1_1526367685996_221481_14860application1' base_Property='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+
+<MD_Customization_for_SysML__additional_stereotypes:ConstraintParameter xmi:id='_18_5_2_bac02e1_1526371692109_728909_45130' base_Port='_18_5_2_bac02e1_1526371692106_301482_45129'/>
+
+Connector:
+<ownedConnector xmi:type='uml:Connector' xmi:id='_18_5_2_bac02e1_1526371226613_5612_44606' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526371226613_464480_44607'>
+		<role href='MD_customization_for_SysML.mdzip#_18_3_903028d_1448291312293_412848_13892'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='MD Customization for SysML::analysis patterns::rollup patterns::MassRollUpPattern::totalMass' referentType='Property'/>
+			</xmi:Extension>
+		</role>
+	</end>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_18_5_2_bac02e1_1526371226613_715226_44608' role='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+</ownedConnector>
+
+<ownedConnector xmi:type='uml:Connector' xmi:id='_19_0_bac02e1_1526657723110_116174_17902' visibility='public'>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657723110_325715_17903' partWithPort='_18_5_2_bac02e1_1526439584671_722571_61673' role='_18_5_2_bac02e1_1526371692106_301482_45129'/>
+	<end xmi:type='uml:ConnectorEnd' xmi:id='_19_0_bac02e1_1526657723110_155414_17904' role='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+</ownedConnector>
+
+Absraction and Requirement:
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481527538_841259_63946'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526370283312_506530_15138'/>
+</packagedElement>
+
+<packagedElement xmi:type='uml:Abstraction' xmi:id='_18_5_2_bac02e1_1526481529260_690916_63952'>
+	<client xmi:idref='_18_5_2_bac02e1_1526367685993_432339_14859'/>
+	<supplier xmi:idref='_18_5_2_bac02e1_1526481098203_767506_62670'/>
+</packagedElement>
+
+Constraint and Block:
+<packagedElement xmi:type='uml:Class' xmi:id='_18_5_2_bac02e1_1526371613650_732818_45068' name='CH Min Mass Reg'>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<modelExtension/>
+	</xmi:Extension>
+	<ownedRule xmi:type='uml:Constraint' xmi:id='_18_5_2_bac02e1_1526371613680_6009_45099'>
+		<constrainedElement xmi:idref='_18_5_2_bac02e1_1526371613650_732818_45068'/>
+		<specification xmi:type='uml:OpaqueExpression' xmi:id='_18_5_2_bac02e1_1526371613680_820714_45100'>
+			<body>mass &lt;= 20</body>
+			<language>JavaScript</language>
+		</specification>
+	</ownedRule>
+	<ownedAttribute xmi:type='uml:Port' xmi:id='_18_5_2_bac02e1_1526371692106_301482_45129' name='mass' visibility='private' aggregation='composite'>
+		<type href='ISO-80000.mdzip#_18_0beta_903028d_1388650184728_204346_92547'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass[kilogram]' referentType='DataType'/>
+			</xmi:Extension>
+		</type>
+	</ownedAttribute>
+</packagedElement>
