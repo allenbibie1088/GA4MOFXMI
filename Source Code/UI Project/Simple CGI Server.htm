@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Simple CGI Server</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="Simple%20CGI%20Server_files/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="Simple%20CGI%20Server_files/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="https://paulmouzas.github.io/">Paul Mouzas</a></h1>
+            <a class="extra" href="https://paulmouzas.github.io/">home</a>
+          </div>
+
+          <h2>Simple CGI Server</h2>
+<p class="meta">19 Apr 2015</p>
+
+<div class="post">
+<p>The best way to learn how a program works is to write
+that program yourself. You want to learn how servers work?
+Great! Try and write one on your own. Even if you fail, 
+I guarantee you will learn something out of the whole
+experience. In this post, I will show you how to create your
+very own server that accepts POST requests. But, I won’t show you how
+to create the whole thing from scratch. I will be focusing
+on how to handle a POST request and return a response from the
+output of a Python script. This will allow us to use create a web form that
+takes in a user’s name from a text box, and display it on a web page. This is a
+fairly trivial task with a web framework like Flask or Pyramid, but we’re going be handling things a
+much lower level, so it will be a bit trickier.</p>
+
+<p>Python already has a couple of modules that contains a classes that can serve files
+from the current directory. It can serve plain text, and HTML. This module will start us out with a very rudimentary
+server that handles GET requests.</p>
+
+<p>To start with, create a file called myserver.py and place
+the following code in there:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">SimpleHTTPServer</span>
+<span class="kn">import</span> <span class="nn">BaseHTTPServer</span>
+
+<span class="n">httpd</span> <span class="o">=</span> <span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">((</span><span class="s">''</span><span class="p">,</span> <span class="mi">8000</span><span class="p">),</span>
+                    <span class="n">SimpleHTTPServer</span><span class="o">.</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">)</span>
+
+<span class="n">httpd</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></code></pre></figure>
+
+<p>To create an instance of HTTPServer, you must pass two arguments: the
+server address in the form of a tuple, and a request handler. SimpleHTTPRequestHandler is a class that handles
+the requests coming in from the client (more about that later).</p>
+
+<p>Now run the script and open up a web browser and go to
+<a href="http://localhost:8000/">http://localhost:8000/</a>. That will list the contents of
+the directory the script was run in. If there were any HTML files in there, the
+browser should display a hyperlink to that HTML page and properly render the it,
+after clicking on it. This basic server can only handle two
+types of requests: GET and HEAD. It does not handle POST requests. Let’s try and
+send a POST request anyway to see what happens. Run the script. If you don’t have the commandline tool netcat, 
+go download it. With netcat,
+connect to localhost on port 8000:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">nc localhost 8000</code></pre></figure>
+
+<p>Following the HTTP protocol, to send a POST request we need three things:</p>
+
+<ul>
+  <li>the method type</li>
+  <li>the path</li>
+  <li>and the HTTP version.</li>
+</ul>
+
+<p>After connecting with netcat, type this:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">POST / HTTP/1.1</code></pre></figure>
+
+<p>Hit Enter twice and you will get the following response:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">HTTP/1.0 501 Unsupported method ('POST')
+Server: SimpleHTTP/0.6 Python/2.7.6
+Date: Tue, 07 Apr 2015 01:45:05 GMT
+Content-Type: text/html
+Connection: close
+
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>Error response<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Error response<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>Error code 501.
+<span class="nt">&lt;p&gt;</span>Message: Unsupported method ('POST').
+<span class="nt">&lt;p&gt;</span>Error code explanation: 501 = Server does not support this operation.
+<span class="nt">&lt;/body&gt;</span></code></pre></figure>
+
+<p>If you take a look at the source code for SimpleHTTPServer, you can view the
+SimpleHTTPRequestHandler.Notice that it has methods called do_GET() and
+do_HEAD():</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">SimpleHTTPRequestHandler</span><span class="p">(</span><span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Serve a GET request."""</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_head</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="p">)</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">do_HEAD</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Serve a HEAD request."""</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_head</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="o">...</span></code></pre></figure>
+
+<p>We can easily extend the functionality of the BaseHTTPRequestHandler by creating
+our own handler class that inherits from it. Then, we can extend that class by
+creating a method called do_POST() that will handle the POST requests.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">SimpleHTTPServer</span>
+<span class="k">class</span> <span class="nc">MyRequestHandler</span><span class="p">(</span><span class="n">SimpleHTTPServer</span><span class="o">.</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">do_POST</span><span class="p">():</span>
+        <span class="k">pass</span></code></pre></figure>
+
+<p>Of course, this code actually won’t do anything. But, if you try and send
+another POST request to the server (like we did with netcat above), you won’t get the error anymore. Try sending
+another POST with netcat. You’ll see that you don’t get any response.</p>
+
+<p>When a browser sends POST requests, it will send the request line like we sent, followed by
+the headers. Before we write any code to handle the request, let’s see exactly what a
+browser will send us when sending a POST request via a web form. Put the
+following HTML in a file called index.html:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"http://localhost:8000/hello.py"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+  Enter your name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"first_name"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre></figure>
+
+<p>So, we have a form that takes in text input, and submits a script called
+hello.py (which we didn’t create yet). Open up another terminal and use netcat to listen on port 8000:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">nc -l 8000</code></pre></figure>
+
+<p>Now open up that index.html file with a web browser. Go ahead and enter your
+name and click submit. After you submit, you’ll notice something like this in
+the terminal:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">POST /hello.py HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: csrftoken=9k6939gc9Pg1OBvSeQYkjtdScoivNgwI; sessionid=3rci1ducdekt7go84jnnl3ugg6c2wnmz
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+first_name=paul</code></pre></figure>
+
+<p>Notice at the very end, there is a key-value pair separated by an equals sign.
+The first part (first_name) is what we called the name attribute in that text
+input above:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Enter your name: &lt;input type="text" name="first_name"&gt;</code></pre></figure>
+
+<p>The second part, after the equals sign, is the name you entered in the text
+box. What we want to do, is write a script that takes that name and spits back
+some HTML with the name you entered. Now let’s create the hello.py. This is
+going to contain the program that takes the name a user entered, and displays it
+back to the user like this:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Hello, Paul!</code></pre></figure>
+
+<p>That script looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">qs</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">POST</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">kv</span> <span class="ow">in</span> <span class="n">qs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'&amp;'</span><span class="p">):</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">kv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'='</span><span class="p">)</span>
+    <span class="n">POST</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="n">POST</span><span class="p">[</span><span class="s">'first_name'</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="s">'Content-type: text/html'</span>
+<span class="k">print</span>
+
+<span class="k">print</span> <span class="s">'&lt;h1&gt;Hello, {name}!&lt;/h1&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></code></pre></figure>
+
+<p>The first line contains what’s called a shebang followed a file path, and python. Basically,
+this will help allow the operating system to run the program as an executable
+file. To make sure that our OS can indeed run this program as an executable,
+type this in the terminal:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">chmod 755 hello.py</code></pre></figure>
+
+<p>Now, the file is executable. This will allow our server to run the script.</p>
+
+<p>Back to myserver.py. Here is the full script:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">BaseHTTPServer</span>
+<span class="kn">import</span> <span class="nn">SimpleHTTPServer</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">class</span> <span class="nc">RequestHandler</span><span class="p">(</span><span class="n">SimpleHTTPServer</span><span class="o">.</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">do_POST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="s">'content-length'</span><span class="p">)</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="s">'content-type'</span><span class="p">)</span>
+        <span class="n">nbytes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">)</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translate_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="n">file_name</span><span class="p">]</span>
+
+        <span class="k">print</span> <span class="n">content_type</span>
+        <span class="k">if</span> <span class="n">content_type</span> <span class="o">==</span> <span class="s">'application/x-www-form-urlencoded'</span><span class="p">:</span>
+            <span class="n">cmd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                                    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                                    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+        <span class="n">output</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s">'Here comes the script output!'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">httpd</span> <span class="o">=</span> <span class="n">BaseHTTPServer</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">((</span><span class="s">''</span><span class="p">,</span> <span class="mi">8000</span><span class="p">),</span> <span class="n">RequestHandler</span><span class="p">)</span>
+
+<span class="n">httpd</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></code></pre></figure>
+
+<p>To see this in action:</p>
+
+<ol>
+  <li>python myserver.py</li>
+  <li>Navigate to <a href="http://localhost:8000/">http://localhost:8000/</a></li>
+  <li>Enter your name and hit submit.</li>
+</ol>
+
+<p>Pretty simple.</p>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Paul Mouzas<br>
+                Technical Writer/Programmer<br>
+                paul.mouzas@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/paulmouzas">github.com/paulmouzas</a><br>
+                <a href="https://twitter.com/phaedrus86">twitter.com/pavlaki86</a><br>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    
+
+</body></html>
